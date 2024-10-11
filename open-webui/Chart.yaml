@@ -1,6 +1,11 @@
 apiVersion: v2
 name: open-webui
 description: A Helm chart for Kubernetes
+icon: https://openwebui.com/favicon.png
+home:
+sources:
+- https://github.com/mbtraore/helm-charts-devops
+
 
 # A chart can be either an 'application' or a 'library' chart.
 #
