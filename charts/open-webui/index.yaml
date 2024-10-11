@@ -12,7 +12,7 @@ entries:
           description: remove duplicated environment variables already defined in Dockerfile
     apiVersion: v2
     appVersion: 0.3.11
-    created: "2024-10-11T23:54:35.018002+02:00"
+    created: "2024-10-11T23:56:33.325159+02:00"
     description: Get up and running with large language models locally.
     digest: 6389e17ed5da81af54ddb3a6c86ee6b4186917388a46a8015c85f4119679ee85
     home: https://ollama.ai/
@@ -32,14 +32,14 @@ entries:
     - https://github.com/otwld/ollama-helm
     type: application
     urls:
-    - https://github.com/mbtraore/helm-charts-devops/tree/main/charts/ollama-0.59.0.tgz
+    - https://github.com/mbtraore/helm-charts-devops/charts/ollama-0.59.0.tgz
     version: 0.59.0
   open-webui:
   - annotations:
       licenses: MIT
     apiVersion: v2
     appVersion: 0.3.32
-    created: "2024-10-11T23:54:35.01667+02:00"
+    created: "2024-10-11T23:56:33.32375+02:00"
     dependencies:
     - condition: ollama.enabled
       import-values:
@@ -71,14 +71,14 @@ entries:
     - https://github.com/otwld/ollama-helm/
     - https://hub.docker.com/r/ollama/ollama
     urls:
-    - https://github.com/mbtraore/helm-charts-devops/tree/main/open-webui-3.3.2.tgz
+    - https://github.com/mbtraore/helm-charts-devops/open-webui-3.3.2.tgz
     version: 3.3.2
   pipelines:
   - annotations:
       licenses: MIT
     apiVersion: v2
     appVersion: alpha
-    created: "2024-10-11T23:54:35.018419+02:00"
+    created: "2024-10-11T23:56:33.325583+02:00"
     description: 'Pipelines: UI-Agnostic OpenAI API Plugin Framework'
     digest: ab13acb3869193ec3fcdea3c0ff59e5ef85d997322bd7b2444cdbfce998709cc
     home: https://github.com/open-webui/pipelines
@@ -92,6 +92,6 @@ entries:
     - https://github.com/open-webui/helm-charts
     - https://github.com/open-webui/pipelines/pkgs/container/pipelines
     urls:
-    - https://github.com/mbtraore/helm-charts-devops/tree/main/charts/pipelines-0.0.4.tgz
+    - https://github.com/mbtraore/helm-charts-devops/charts/pipelines-0.0.4.tgz
     version: 0.0.4
-generated: "2024-10-11T23:54:35.014698+02:00"
+generated: "2024-10-11T23:56:33.321582+02:00"
