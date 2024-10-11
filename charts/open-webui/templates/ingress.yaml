@@ -1,33 +1,35 @@
-{{- if .Values.ingress.enabled }}
+{{- if .Values.ingress.enabled -}}
+{{- $fullName := include "open-webui.fullname" . -}}
+{{- $svcPort := .Values.networking.service.port -}}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ include "open-webui.name" . }}
+  name: {{ $fullName }}-ui
   labels:
     {{- include "open-webui.labels" . | nindent 4 }}
-  {{- with .Values.ingress.annotations }}
   annotations:
-    {{- toYaml . | nindent 4 }}
-  {{- end }}
+    {{- include "open-webui.ingress.annotations" . | nindent 4 }}
 spec:
-  {{- with .Values.ingress.class }}
-  ingressClassName: {{ . }}
+  {{- if and .Values.ingress.ingressClassName (eq "true" (include "open-webui.ingress.supportsIngressClassname" .)) }}
+  ingressClassName: {{ .Values.ingress.ingressClassName | quote }}
   {{- end }}
-  {{- if .Values.ingress.tls }}
+{{- if .Values.ingress.tls }}
   tls:
     - hosts:
-      - {{ .Values.ingress.host | quote }}
-      secretName: {{ default (printf "%s-tls" .Release.Name) .Values.ingress.existingSecret }}
-  {{- end }}
+        - {{ .Values.ingress.hostname | quote }}
+    {{- if .Values.ingress.useCertManager }}
+      secretName: tls-cert-{{ include "open-webui.fullname" . }}
+    {{- end }}
+{{- end }}
   rules:
-  - host: {{ .Values.ingress.host }}
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: {{ include "open-webui.name" . }}
-            port:
-              name: http
+    - host: {{ .Values.ingress.hostname | quote }}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ .Release.Name }}-scheduler
+                port: 
+                  number: {{ $svcPort }}
 {{- end }}
