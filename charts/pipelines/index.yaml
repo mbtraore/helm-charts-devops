@@ -1,0 +1,24 @@
+apiVersion: v1
+entries:
+  pipelines:
+  - annotations:
+      licenses: MIT
+    apiVersion: v2
+    appVersion: alpha
+    created: "2024-10-12T00:24:12.903961+02:00"
+    description: 'Pipelines: UI-Agnostic OpenAI API Plugin Framework'
+    digest: 96174fe9f40d2dc1d39d5a81fde002dd6a567422022c3c44f73f8896f6b9f284
+    home: https://github.com/open-webui/pipelines
+    icon: https://github.com/open-webui/pipelines/raw/main/header.png
+    keywords:
+    - llm
+    - chat
+    - web-ui
+    name: pipelines
+    sources:
+    - https://github.com/open-webui/helm-charts
+    - https://github.com/open-webui/pipelines/pkgs/container/pipelines
+    urls:
+    - https://github.com/mbtraore/helm-charts-devops/pipelines-0.0.4.tgz
+    version: 0.0.4
+generated: "2024-10-12T00:24:12.903329+02:00"
